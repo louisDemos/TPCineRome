@@ -45,12 +45,9 @@ public class Panier {
 
 	@Override
 	public String toString() {
-		String description = "";
-		for (LignePanier lp : contenu) {
-			description += lp.getArticle().getReference() + "" + lp.getQteCommande() + "\n";
-		}
-
-		return description;
+		return "Panier [contenu=" + contenu + "]";
 	}
+
+	
 
 }

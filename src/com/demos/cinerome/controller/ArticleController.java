@@ -2,7 +2,6 @@ package com.demos.cinerome.controller;
 
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -30,22 +29,38 @@ public class ArticleController {
 		listeArticle.add(a3);
 
 		model.put("listeModel", listeArticle);
-		
-		session.setAttribute("liste", listeArticle);
-		
+
+		Panier panier = (Panier) session.getAttribute("lePanier");
+		if (panier == null) {
+			panier = new Panier();
+			session.setAttribute("lePanier", panier);
+		}
+		session.setAttribute("listeModel", listeArticle);
+
 		return "accueil";
 	}
 
-	// Ajour d'un article dans le panier
+	// Ajout d'un article dans le panier
 	@RequestMapping(value = "/ajouterArticle.htm", method = RequestMethod.POST)
-	public String ajouterArticle(@ModelAttribute("listeModel") ArrayList<Article> liste,HttpSession session, @RequestParam("reference") String reference, @RequestParam("qte") int qte) {
-			System.out.println("ref "+ reference +" quantité : "+ qte);
-			Panier panier = new Panier(); 
-			panier.ajouterArticle(, qte);
-			System.out.println(panier);
+	public String ajouterArticle(HttpSession session,@RequestParam("reference") String reference, @RequestParam("qte") int qte) {
+
+		Panier panier = (Panier) session.getAttribute("lePanier");
+		ArrayList<Article> listeArticle = (ArrayList<Article>) session.getAttribute("listeModel");
+
+		if (panier == null) {
+			panier = new Panier();
+			session.setAttribute("lePanier", panier);
+		}
+
+		for (Article a : listeArticle) {
+			if (reference.equals(a.getReference())) {
+				
+				panier.ajouterArticle(a, qte);
+				System.out.println("Mon panier " + panier + "Article selectionné : " + a);
+			}
+		}
 
 		return "accueil";
-		
 
 	}
 

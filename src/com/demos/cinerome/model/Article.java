@@ -21,6 +21,13 @@ public class Article {
 		this.prixHT = prixHT;
 		this.qteStock = qteStock;
 	}
+	
+	
+
+	public Article() {
+	}
+
+
 
 	@Override
 	public String toString() {
