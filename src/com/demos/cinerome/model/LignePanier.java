@@ -11,6 +11,14 @@ public class LignePanier {
 		this.qteCommande = qteCommande;
 	}
 
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+
+	public void setQteCommande(int qteCommande) {
+		this.qteCommande = qteCommande;
+	}
+
 	public Article getArticle() {
 		return article;
 	}

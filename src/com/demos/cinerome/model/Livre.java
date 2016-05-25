@@ -1,52 +1,49 @@
 package com.demos.cinerome.model;
 
-public class Livre extends Article{
+public class Livre extends Article {
 
-	public Livre(String reference, String titre_art, String resume, double prixHT, double prixTTC) {
-		super(reference, titre_art, resume, prixHT, prixTTC);
-		
+	public Livre(String reference, String designation, String informations, String categorie, String nom_image,
+			double prixHT, int qteStock) {
+		super(reference, designation, informations, categorie, nom_image, prixHT, qteStock);
+
 	}
 
-	private int isbn;
-	private int nbpage;
-	private String titre_livre;
+	private String isbn;
 	private String auteur;
 	private String editeur;
 	private String genre;
 
-	
-	
-
-	public String getAuteur() {
-		return auteur;
+	@Override
+	public String toString() {
+		return "Livre [isbn=" + isbn + ", auteur=" + auteur + ", editeur=" + editeur + ", genre=" + genre + "]";
 	}
 
-	public void setAuteur(String auteur) {
-		this.auteur = auteur;
+	public void equals() {
+
 	}
 
-	public int getIsbn() {
+	public String getIsbn() {
 		return isbn;
 	}
 
-	public String getTitre_livre() {
-		return titre_livre;
-	}
-
-	public String getEditeur() {
-		return editeur;
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
 	public String getGenre() {
 		return genre;
 	}
 
-	public int getNbpage() {
-		return nbpage;
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 
-	public void setNbpage(int nbpage) {
-		this.nbpage = nbpage;
+	public String getAuteur() {
+		return auteur;
+	}
+
+	public String getEditeur() {
+		return editeur;
 	}
 
 }

@@ -3,26 +3,81 @@ package com.demos.cinerome.model;
 public class Article {
 
 	private String reference;
-	private String titre_art;
-	private String resume;
+	private String designation;
+	private String informations;
+	private String categorie="livre";
+	private String nom_image;
 	private double prixHT;
-	private double prixTTC;
+	private int qteStock;
 
-	public Article(String reference, String titre_art, String resume, double prixHT, double prixTTC) {
+	public Article(String reference, String designation, String informations, String categorie, String nom_image,
+			double prixHT, int qteStock) {
 		super();
 		this.reference = reference;
-		this.titre_art = titre_art;
-		this.resume = resume;
+		this.designation = designation;
+		this.informations = informations;
+		this.categorie = categorie;
+		this.nom_image = nom_image;
 		this.prixHT = prixHT;
-		this.prixTTC = prixTTC;
+		this.qteStock = qteStock;
 	}
 
-	public String getResume() {
-		return resume;
+	@Override
+	public String toString() {
+		return "Article [reference=" + reference + ", designation= " + designation + ", informations=" + informations
+				+ ", prixHT=" + prixHT + "]";
 	}
 
-	public void setResume(String resume) {
-		this.resume = resume;
+	public void equals() {
+
+	}
+
+	public double getPrixTTC() {
+		double prixTTC = 0;
+		if (categorie == "livre")
+			prixTTC = prixHT * 1.055;
+		return prixTTC;
+
+	}
+
+	public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public String getInformations() {
+		return informations;
+	}
+
+	public void setInformations(String informations) {
+		this.informations = informations;
+	}
+
+	public String getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
+	}
+
+	public String getNom_image() {
+		return nom_image;
+	}
+
+	public void setNom_image(String nom_image) {
+		this.nom_image = nom_image;
 	}
 
 	public double getPrixHT() {
@@ -33,20 +88,14 @@ public class Article {
 		this.prixHT = prixHT;
 	}
 
-	public double getPrixTTC() {
-		return prixTTC;
+	public int getQteStock() {
+		return qteStock;
 	}
 
-	public void setPrixTTC(double prixTTC) {
-		this.prixTTC = prixTTC;
+	public void setQteStock(int qteStock) {
+		this.qteStock = qteStock;
 	}
 
-	public String getReference() {
-		return reference;
-	}
 
-	public void setTitre_art(String titre_art) {
-		this.titre_art = titre_art;
-	}
 
 }

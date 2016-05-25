@@ -15,10 +15,27 @@ public class Panier {
 
 	}
 
-	public void ajouter(Article article, int qte) {
-		LignePanier lignepanier = new LignePanier(article, qte);
-		contenu.add(lignepanier);
+	public void ajouterArticle(String reference, int qte) {
+		for (LignePanier lignepanier : contenu) {
+			if (lignepanier.getArticle().getReference().equals(reference))
+				lignepanier.setQteCommande(lignepanier.getQteCommande() + qte);
+			else
+				lignepanier.setQteCommande(qte);
+		}
+	}
 
+	public void retirerArticle(String reference) {
+		for (LignePanier lignepanier : contenu) {
+			if (lignepanier.getArticle().getReference().equals(reference))
+				contenu.remove(lignepanier);
+		}
+	}
+
+	public void modifierQteArticle(String reference, int qte) {
+		for (LignePanier lignepanier : contenu) {
+			if (lignepanier.getArticle().getReference().equals(reference))
+				lignepanier.setQteCommande(qte);
+		}
 	}
 
 	public double getPrixTotalHT() {
@@ -27,7 +44,6 @@ public class Panier {
 		for (LignePanier lignepanier : contenu) {
 			prix += lignepanier.getArticle().getPrixHT() * lignepanier.getQteCommande();
 		}
-
 		return prix;
 	}
 
@@ -40,4 +56,5 @@ public class Panier {
 
 		return description;
 	}
+
 }
