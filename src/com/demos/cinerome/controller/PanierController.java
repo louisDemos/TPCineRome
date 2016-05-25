@@ -15,12 +15,11 @@ import com.demos.cinerome.model.Article;
 
 public class PanierController {
 	
-	@RequestMapping(value="/ajouterArticle.htm", method=RequestMethod.POST)
+	@RequestMapping(value="/pagePanier.htm", method=RequestMethod.POST)
 	public String ajouterArticle(ModelMap model) {
-		Article article = new Article("a1","les misérables" , "livre 1", "livre", "Miserables",
-				10 , 50);
 		
-		model.put("panierModel", article);
+		
+		
 		
 		return "panier";
 	}

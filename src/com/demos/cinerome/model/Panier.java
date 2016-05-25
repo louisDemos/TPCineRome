@@ -15,13 +15,9 @@ public class Panier {
 
 	}
 
-	public void ajouterArticle(String reference, int qte) {
-		for (LignePanier lignepanier : contenu) {
-			if (lignepanier.getArticle().getReference().equals(reference))
-				lignepanier.setQteCommande(lignepanier.getQteCommande() + qte);
-			else
-				lignepanier.setQteCommande(qte);
-		}
+	public void ajouterArticle(Article article, int qteCommande) {
+		LignePanier lignepanier = new LignePanier(article, qteCommande);
+		contenu.add(lignepanier);
 	}
 
 	public void retirerArticle(String reference) {
