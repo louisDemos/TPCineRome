@@ -5,7 +5,7 @@ public class Article {
 	private String reference;
 	private String designation;
 	private String informations;
-	private String categorie="livre";
+	private String categorie;
 	private String nom_image;
 	private double prixHT;
 	private int qteStock;
@@ -21,13 +21,9 @@ public class Article {
 		this.prixHT = prixHT;
 		this.qteStock = qteStock;
 	}
-	
-	
 
 	public Article() {
 	}
-
-
 
 	@Override
 	public String toString() {
@@ -41,6 +37,7 @@ public class Article {
 
 	public double getPrixTTC() {
 		double prixTTC = 0;
+		String categorie = "livre";
 		if (categorie == "livre")
 			prixTTC = prixHT * 1.055;
 		return prixTTC;
@@ -102,7 +99,5 @@ public class Article {
 	public void setQteStock(int qteStock) {
 		this.qteStock = qteStock;
 	}
-
-
 
 }

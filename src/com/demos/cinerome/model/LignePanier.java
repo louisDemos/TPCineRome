@@ -26,5 +26,9 @@ public class LignePanier {
 	public int getQteCommande() {
 		return qteCommande;
 	}
+	@Override
+	public String toString() {
+		return "LignePanier [article=" + article + ", qteCommande=" + qteCommande + "]";
+	}
 
 }

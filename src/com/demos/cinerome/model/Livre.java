@@ -38,6 +38,14 @@ public class Livre extends Article {
 		this.genre = genre;
 	}
 
+	public void setAuteur(String auteur) {
+		this.auteur = auteur;
+	}
+
+	public void setEditeur(String editeur) {
+		this.editeur = editeur;
+	}
+
 	public String getAuteur() {
 		return auteur;
 	}
